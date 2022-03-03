@@ -14,9 +14,12 @@
                         <hr>
                         <p class="h3 text-center">Price</p>
                         ${{ $room->price }}
-
-
                         <hr>
+                        <p class="h3 text-center">Room Type</p>
+                        {{ $room->type->title }}
+
+
+
                         <a href="{{ route('room.index') }}" class="btn btn-primary w-100">Previous</a>
                     </div>
                 </div>

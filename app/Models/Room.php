@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
-        protected $with = ['user','photos','features'];
+        protected $with = ['user','photos','features','type'];
 
     public function user(){
         return $this->belongsTo(User::class);
     }
 
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
 
     public function photos() {
         return $this->hasMany(Photo::class);
@@ -22,6 +25,7 @@ class Room extends Model
    public function features() {
         return $this->belongsToMany(Feature::class);
    }
+
 
 
     public function getShowCreatedAtAttribute(){

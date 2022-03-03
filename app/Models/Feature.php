@@ -9,5 +9,8 @@ class Feature extends Model
 {
     use HasFactory;
 
+//    public function rooms(){
+//        return $this->belongsToMany("Room",'room_feature','room_id','feature_id');
+//    }
 
 }

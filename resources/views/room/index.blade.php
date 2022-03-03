@@ -39,9 +39,10 @@
                             <tr>
                                 <th>#</th>
                                 <th class="">Name</th>
-                                <th class="w-50">Description</th>
+{{--                                <th class="w-25">Description</th>--}}
+                                <th>Type</th>
                                 <th>Photo</th>
-                                <th>Price</th>
+                                <th>Price (MMK)</th>
                                 <th>Features</th>
                                 @if(Auth::user()->role == 0)
                                     <th>User</th>
@@ -56,7 +57,12 @@
                                 <tr>
                                     <td>{{ $room->id }}</td>
                                     <td>{{ $room->name }}</td>
-                                    <td>{{ $room->description }}</td>
+                                    <td>
+                                        <span class="badge bg-primary">
+                                            {{ $room->type->title }}
+                                        </span>
+                                    </td>
+{{--                                    <td>{{ $room->description }}</td>--}}
                                     <td>
 {{--                                        {{$room->photos}}--}}
                                         @forelse($room->photos as $photo)

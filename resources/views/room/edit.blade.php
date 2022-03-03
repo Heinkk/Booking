@@ -30,18 +30,18 @@
                             </div>
 
 
-{{--                            <div class="mb-3">--}}
+                            <div class="mb-3">
 
-{{--                                <label>Post Category</label>--}}
-{{--                                <select type="text" name="category"  class="form-select @error('category') is-invalid @enderror">--}}
-{{--                                    @foreach(\App\Models\Category::all() as $category)--}}
-{{--                                        <option value="{{ $category->id }}" {{ old('category',$post->category_id) ==  $category->id ? 'selected' : '' }}>{{ $category->title }}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                                @error('category')--}}
-{{--                                <p class="text-danger small mt-2">{{ $message }}</p>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
+                                <label>Room Type</label>
+                                <select type="text" name="type"  class="form-select @error('type') is-invalid @enderror">
+                                    @foreach(\App\Models\Type::all() as $type)
+                                        <option value="{{ $type->id }}" {{ old('type',$room->type_id) ==  $type->id ? 'selected' : '' }}>{{ $type->title }}</option>
+                                    @endforeach
+                                </select>
+                                @error('type')
+                                <p class="text-danger small mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
 
                             <div class="mb-3">
 

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Feature;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -28,6 +30,7 @@ class RoomFactory extends Factory
             "name" => $name,
             "slug" => $slug,
 //            "category_id" => Category::all()->random()->id,
+            "type_id" => Type::all()->random()->id,
             "description" => $description,
             "price"  => $price,
             "user_id" => User::all()->random()->id,
