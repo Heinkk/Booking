@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoomFeatureTable extends Migration
+class CreateFeatureRoomTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateRoomFeatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('room_feature', function (Blueprint $table) {
+        Schema::create('feature_room', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('room_id');
-            $table->unsignedBigInteger('feature_id');
+            $table->unsignedBigInteger("room_id");
+            $table->unsignedBigInteger("feature_id");
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -29,6 +29,6 @@ class CreateRoomFeatureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('room_feature');
+        Schema::dropIfExists('feature_room');
     }
 }

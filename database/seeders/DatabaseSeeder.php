@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Feature;
 use App\Models\Room;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -21,14 +22,16 @@ class DatabaseSeeder extends Seeder
     {
          \App\Models\User::factory(10)->create();
 
+         Type::factory(5)->create();
+
 //        Category::factory(15)->create();
         Room::factory(10)->create();
 //        Tag::factory(15)->create();
         Feature::factory(10)->create();
 //
-//        Post::all()->each(function ($post){
-//            $post->tags()->attach(Tag::inRandomOrder()->limit(rand(1,4))->get()->pluck('id'));
-//        });
+        Room::all()->each(function ($room){
+            $room->features()->attach(Feature::inRandomOrder()->limit(rand(1,4))->get()->pluck('id'));
+        });
 
 //        User::create([
 //            'name' => "Hein Ko Ko",

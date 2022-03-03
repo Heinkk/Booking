@@ -58,6 +58,7 @@ class RoomController extends Controller
         $room->name = $request->name;
         $room->slug = $request->name;
 //        $post->category_id = $request->category;
+        $room->type_id = $request->type;
         $room->description = $request->description;
         $room->price = $request->price;
 
@@ -88,7 +89,7 @@ class RoomController extends Controller
 
             }
         }
-        return redirect()->route('room.index');
+        return redirect()->route('room.index')->with("status","Created Room Successfully");
     }
 
 
@@ -127,6 +128,7 @@ class RoomController extends Controller
     {
         $room->name = $request->name;
         $room->description = $request->description;
+        $room->type_id = $request->type;
         $room->price = $request->price;
         $room->user_id = Auth::user()->id;
         $room->slug = Str::slug($request->name);
@@ -135,7 +137,7 @@ class RoomController extends Controller
         $room->features()->detach();
         $room->features()->attach($request->features);
 
-        return redirect()->route("room.index");
+        return redirect()->route("room.index")->with("status","Updated Room Successfully");
     }
 
     /**
@@ -155,6 +157,6 @@ class RoomController extends Controller
 
         // post delete
         $room->delete();
-        return redirect()->back();
+        return redirect()->back()->with("status","Deleted Room Successfully");
     }
 }
